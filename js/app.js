@@ -1,33 +1,64 @@
 // Variables
 // -----------------------------------------------------------------------------
 
-var words = [
-	new Word(0, "A", "Empieza por A:", " Relato breve de un acontecimiento extraño, curioso o divertido, generalmente ocurrido a la persona que lo cuenta.", "Anecdota"),
-	new Word(1, "B", "Empieza por B:", " Pasta dulce y esponjosa, hecha con harina, huevos, levadura y otros ingredientes, que puede tener distintas formas", "Bollo"),
-	new Word(2, "C", "Empieza por C:", " Corriente de agua que cae desde cierta altura a causa de un brusco desnivel en su cauce, especialmente en un rio", "Cascada"),
-	new Word(3, "D", "Empieza por D:", " Arma blanca de hoja corta, ancha y puntiaguda, parecida a la espada pero de menor tamaño", "Daga"),
-	new Word(4, "E", "Empieza por E:", " Línea curva que describe varias vueltas alrededor de un punto, alejándose cada vez más de él", "Espiral"),
-	new Word(5, "F", "Contiene la F:", " Que está descompuesto o podrido por la acción de diversos factores y determinados microorganismos", "Putrefacto"),
-	new Word(6, "G", "Empieza por G:", " Que se comporta de manera ruda, tosca o grosera", "Garrulo"),
-	new Word(7, "H", "Contiene la H:", " Persona o animal que es grueso y de poca altura", "Rechoncho"),
-	new Word(8, "I", "Empieza por I:", " Que está en el espacio existente entre dos astros, o que tiene relación con él", "Interestelar"),
-	new Word(9, "J", "Empieza por J:", " Chile picante de unos 5 cm de largo, carnoso y de punta redonda, que se usa para condimentar ciertos guisos", "Jalapeño"),
-	new Word(10, "L", "Contiene la L:", " Hombre pequeño y débil", "Homunculo"),
-	new Word(11, "M", "Empieza por M:", " Persona que sufre o muere por defender su religión o sus ideales. ", "Martir"),
-	new Word(12, "N", "Empieza por N:", " Tubo fluorescente que produce una luz brillante.", "Neon"),
-	new Word(13, "Ñ", "Contiene la Ñ:", " Dar a una cosa un color distinto del que tiene.", "Teñir"),
-	new Word(14, "O", "Empieza por O:", " Que conoce todas las cosas reales y posibles.", "Omnisciente"),
-	new Word(15, "P", "Contiene la P:", " Calzado de lona, con suela de esparto, cáñamo o goma, que se sujeta al pie por presión o con unas cintas que se atan al tobillo.", "Alpargata"),
-	new Word(16, "Q", "Empieza por Q:", " Que se puede romper fácilmente.", "Quebradizo"),
-	new Word(17, "R", "Empieza por R:", " Operación quirúrgica para restaurar la nariz.", "Rinoplastia"),
-	new Word(18, "S", "Contiene la S:", " Falta de cuidado en la forma de vestir y en el aseo personal.", "Desaliño"),
-	new Word(19, "T", "Empieza por T:", " Persona alocada, bulliciosa y molesta.", "Tabardillo"),
-	new Word(20, "U", "Contiene la U:", " Persona que rehúye el trato de otras personas y rechaza las atenciones y muestras de cariño.", "Huraño"),
-	new Word(21, "V", "Empieza por V:", " Tributo que el vasallo pagaba a su señor o servicio que le prestaba según este vínculo.", "Vasallaje"),
-	new Word(22, "X", "Contiene la X:", " Punto culminante o de mayor satisfacción de la excitación sexual en las zonas erógenas o sexuales.", "Climax"),
-	new Word(23, "Y", "Contiene la Y:", " Toro castrado, que se utiliza como animal de tiro y del cual se aprovecha su carne.", "Buey"),
-	new Word(24, "Z", "Contiene la Z:", " Que es tonto o tiene poca rapidez mental.", "Pazguato")
-];
+var wordSets = {
+    general: [
+        new Word(0, "A", "Empieza por A:", " Relato breve de un acontecimiento extraño, curioso o divertido, generalmente ocurrido a la persona que lo cuenta.", "Anecdota"),
+        new Word(1, "B", "Empieza por B:", " Pasta dulce y esponjosa, hecha con harina, huevos, levadura y otros ingredientes, que puede tener distintas formas", "Bollo"),
+        new Word(2, "C", "Empieza por C:", " Corriente de agua que cae desde cierta altura a causa de un brusco desnivel en su cauce, especialmente en un rio", "Cascada"),
+        new Word(3, "D", "Empieza por D:", " Arma blanca de hoja corta, ancha y puntiaguda, parecida a la espada pero de menor tamaño", "Daga"),
+        new Word(4, "E", "Empieza por E:", " Línea curva que describe varias vueltas alrededor de un punto, alejándose cada vez más de él", "Espiral"),
+        new Word(5, "F", "Contiene la F:", " Que está descompuesto o podrido por la acción de diversos factores y determinados microorganismos", "Putrefacto"),
+        new Word(6, "G", "Empieza por G:", " Que se comporta de manera ruda, tosca o grosera", "Garrulo"),
+        new Word(7, "H", "Contiene la H:", " Persona o animal que es grueso y de poca altura", "Rechoncho"),
+        new Word(8, "I", "Empieza por I:", " Que está en el espacio existente entre dos astros, o que tiene relación con él", "Interestelar"),
+        new Word(9, "J", "Empieza por J:", " Chile picante de unos 5 cm de largo, carnoso y de punta redonda, que se usa para condimentar ciertos guisos", "Jalapeño"),
+        new Word(10, "L", "Contiene la L:", " Hombre pequeño y débil", "Homunculo"),
+        new Word(11, "M", "Empieza por M:", " Persona que sufre o muere por defender su religión o sus ideales. ", "Martir"),
+        new Word(12, "N", "Empieza por N:", " Tubo fluorescente que produce una luz brillante.", "Neon"),
+        new Word(13, "Ñ", "Contiene la Ñ:", " Dar a una cosa un color distinto del que tiene.", "Teñir"),
+        new Word(14, "O", "Empieza por O:", " Que conoce todas las cosas reales y posibles.", "Omnisciente"),
+        new Word(15, "P", "Contiene la P:", " Calzado de lona, con suela de esparto, cáñamo o goma, que se sujeta al pie por presión o con unas cintas que se atan al tobillo.", "Alpargata"),
+        new Word(16, "Q", "Empieza por Q:", " Que se puede romper fácilmente.", "Quebradizo"),
+        new Word(17, "R", "Empieza por R:", " Operación quirúrgica para restaurar la nariz.", "Rinoplastia"),
+        new Word(18, "S", "Contiene la S:", " Falta de cuidado en la forma de vestir y en el aseo personal.", "Desaliño"),
+        new Word(19, "T", "Empieza por T:", " Persona alocada, bulliciosa y molesta.", "Tabardillo"),
+        new Word(20, "U", "Contiene la U:", " Persona que rehúye el trato de otras personas y rechaza las atenciones y muestras de cariño.", "Huraño"),
+        new Word(21, "V", "Empieza por V:", " Tributo que el vasallo pagaba a su señor o servicio que le prestaba según este vínculo.", "Vasallaje"),
+        new Word(22, "X", "Contiene la X:", " Punto culminante o de mayor satisfacción de la excitación sexual en las zonas erógenas o sexuales.", "Climax"),
+        new Word(23, "Y", "Contiene la Y:", " Toro castrado, que se utiliza como animal de tiro y del cual se aprovecha su carne.", "Buey"),
+        new Word(24, "Z", "Contiene la Z:", " Que es tonto o tiene poca rapidez mental.", "Pazguato")
+    ],
+    tech: [
+        new Word(0, "A", "Empieza por A:", " Conjunto de pasos para resolver un problema informático.", "Algoritmo"),
+        new Word(1, "B", "Empieza por B:", " Dispositivo inalámbrico usado para conectar periféricos.", "Bluetooth"),
+        new Word(2, "C", "Empieza por C:", " Programa malicioso que se oculta dentro de otro aparentemente inofensivo.", "Caballo"),
+        new Word(3, "D", "Empieza por D:", " Unidad magnética usada para almacenar datos.", "Disco"),
+        new Word(4, "E", "Empieza por E:", " Servicio que permite enviar y recibir mensajes digitales.", "Email"),
+        new Word(5, "F", "Contiene la F:", " Tecnología de conexión inalámbrica de corto alcance.", "Wifi"),
+        new Word(6, "G", "Empieza por G:", " Sistema de control de versiones muy popular.", "Git"),
+        new Word(7, "H", "Contiene la H:", " Parte física de un sistema informático.", "Hardware"),
+        new Word(8, "I", "Empieza por I:", " Red mundial de computadoras interconectadas.", "Internet"),
+        new Word(9, "J", "Empieza por J:", " Lenguaje de programación que se ejecuta en el navegador.", "JavaScript"),
+        new Word(10, "L", "Contiene la L:", " Sistema operativo de código abierto muy usado en servidores.", "Linux"),
+        new Word(11, "M", "Empieza por M:", " Dispositivo señalador para interactuar con la computadora.", "Mouse"),
+        new Word(12, "N", "Empieza por N:", " Programa usado para acceder a páginas web.", "Navegador"),
+        new Word(13, "Ñ", "Contiene la Ñ:", " Intensidad de una transmisión electromagnética.", "Señal"),
+        new Word(14, "O", "Empieza por O:", " Modelo de desarrollo de software con código abierto.", "Opensource"),
+        new Word(15, "P", "Contiene la P:", " Conjunto de normas usadas para la comunicación de datos.", "Protocolo"),
+        new Word(16, "Q", "Empieza por Q:", " Palabra inglesa que significa consulta en bases de datos.", "Query"),
+        new Word(17, "R", "Empieza por R:", " Memoria que solo puede leerse.", "ROM"),
+        new Word(18, "S", "Contiene la S:", " Copia de seguridad de la información.", "Respaldo"),
+        new Word(19, "T", "Empieza por T:", " Servicio de acceso remoto a otro equipo.", "Telnet"),
+        new Word(20, "U", "Contiene la U:", " Parte de la aplicación con la que interactúa el usuario.", "Usuario"),
+        new Word(21, "V", "Empieza por V:", " Tecnología que simula entornos a través de software.", "Virtualizacion"),
+        new Word(22, "X", "Contiene la X:", " Sistema operativo de Apple durante años.", "OSX"),
+        new Word(23, "Y", "Contiene la Y:", " Servidor intermediario entre un cliente y un destino.", "Proxy"),
+        new Word(24, "Z", "Contiene la Z:", " Formato de compresión de archivos muy conocido.", "Zip")
+    ]
+};
+
+var words = wordSets.general.slice();
 
 // Functions
 // -----------------------------------------------------------------------------
@@ -46,7 +77,7 @@ function showDefinition(pos) {
 	$("#js--definition").html(words[pos].definition);
 }
 
-var remainingWords = 25;
+var remainingWords = words.length;
 
 function checkAnswer(pos) {
 	var userAnswer = $("#js--user-answer").val().toLowerCase();
@@ -59,7 +90,7 @@ function checkAnswer(pos) {
 		$(".circle .item").eq(words[pos].idNumber).addClass("item--failure");
 	}
 	remainingWords--;
-	$("js--score").html(remainingWords);
+        $("#js--score").html(remainingWords);
 
 	return count++;
 }
@@ -71,7 +102,7 @@ function pasapalabra(pos) {
 }
 
 function continuePlaying() {
-	if (count != 25) {
+        if (count != words.length) {
 		$("#js--user-answer").val("");
 		showDefinition(count);
 	} else {
@@ -122,11 +153,20 @@ function showUserScore() {
 // New game
 var count = 0; // Counter for answered words
 $("#js--new-game").click(function() {
-	$("#js--ng-controls").addClass("hidden");
-	$("#js--question-controls").removeClass("hidden");
-	$("#js--close").removeClass("hidden");
-	showDefinition(count);
-	countdown();
+        var selected = $("#js--word-set").val();
+        words = wordSets[selected].map(function(w, idx){
+                return new Word(idx, w.letter, w.hint, w.definition, w.word);
+        });
+        count = 0;
+        remainingWords = words.length;
+        $("#js--score").html(remainingWords);
+        $(".circle .item").removeClass("item--success item--failure");
+
+        $("#js--ng-controls").addClass("hidden");
+        $("#js--question-controls").removeClass("hidden");
+        $("#js--close").removeClass("hidden");
+        showDefinition(count);
+        countdown();
 });
 
 // Send the answer

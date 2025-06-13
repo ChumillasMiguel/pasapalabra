@@ -583,10 +583,12 @@ body {
     text-align: center;
     text-decoration: none;
     cursor: default; }
-    .circle .item--success {
-      background-image: radial-gradient(circle, #9ee379, #4caf50); }
+.circle .item--success {
+      background-image: radial-gradient(circle, #9ee379, #4caf50);
+      animation: success-pulse .5s ease; }
     .circle .item--failure {
-      background-image: radial-gradient(circle, #b9121b, #8e001c); }
+      background-image: radial-gradient(circle, #b9121b, #8e001c);
+      animation: failure-shake .5s ease; }
 
 .scoreboard {
   margin: 0 0 1em 2em;
@@ -704,6 +706,14 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 0; }
+  .ng-controls select {
+    margin-top: .5em;
+    padding: .25em;
+    border: 2px solid #fff;
+    border-radius: 3px;
+    background-color: #0074d9;
+    color: #fff;
+    font-weight: 600; }
 
 .question-controls {
   width: 80%;
@@ -768,5 +778,21 @@ footer {
     text-decoration: none; }
     footer a:hover {
       color: #f2f2f2; }
-  footer i {
-    color: #d90000; }
+footer i {
+  color: #d90000; }
+
+@keyframes success-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(158, 227, 121, 0.7); }
+  70% {
+    box-shadow: 0 0 10px 10px rgba(158, 227, 121, 0); }
+  100% {
+    box-shadow: 0 0 0 0 rgba(158, 227, 121, 0); } }
+
+@keyframes failure-shake {
+  0%, 100% {
+    margin-left: 0; }
+  20%, 60% {
+    margin-left: -3px; }
+  40%, 80% {
+    margin-left: 3px; } }

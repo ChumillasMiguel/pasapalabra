@@ -49,28 +49,42 @@ section {
 		transform: translate(-50%, -50%);
 	 }
 
-	.item {
-		display: block;
-		width: $s-item;
-		height: $s-item;
-		transition: all .3s ease-in-out;
-		border: 2px solid $c-white;
-		border-radius: 50%;
-		background-image: radial-gradient(circle, $c-base, $c-base-darker);
-		color: $c-white;
-		line-height: $s-item;
-		text-align: center;
-		text-decoration: none;
-		cursor: default;
+        .item {
+                display: block;
+                width: $s-item;
+                height: $s-item;
+                transition: all .3s ease-in-out;
+                border: 2px solid $c-white;
+                border-radius: 50%;
+                background-image: radial-gradient(circle, $c-base, $c-base-darker);
+                color: $c-white;
+                line-height: $s-item;
+                text-align: center;
+                text-decoration: none;
+                cursor: default;
 
-		&--success {
-			background-image: radial-gradient(circle, $c-success, $c-success-darker);
-		}
+                &--success {
+                        background-image: radial-gradient(circle, $c-success, $c-success-darker);
+                        animation: success-pulse .5s ease;
+                }
 
-		&--failure {
-			background-image: radial-gradient(circle, $c-failure, $c-failure-darker);
-		}
-	}
+                &--failure {
+                        background-image: radial-gradient(circle, $c-failure, $c-failure-darker);
+                        animation: failure-shake .5s ease;
+                }
+        }
+}
+
+@keyframes success-pulse {
+        0% { box-shadow: 0 0 0 0 rgba($c-success, .7); }
+        70% { box-shadow: 0 0 10px 10px rgba($c-success, 0); }
+        100% { box-shadow: 0 0 0 0 rgba($c-success, 0); }
+}
+
+@keyframes failure-shake {
+        0%,100% { margin-left: 0; }
+        20%,60% { margin-left: -3px; }
+        40%,80% { margin-left: 3px; }
 }
 
 /* Scoreboard
@@ -218,13 +232,23 @@ section {
 		text-transform: uppercase;
 	}
 
-	p {
-		margin-top: 0;
-		margin-right: auto;
-		margin-left: auto;
-		color: $c-white;
-		font-size: .9rem;
-	}
+        p {
+                margin-top: 0;
+                margin-right: auto;
+                margin-left: auto;
+                color: $c-white;
+                font-size: .9rem;
+        }
+
+        select {
+                margin-top: .5em;
+                padding: .25em;
+                border: 2px solid $c-white;
+                border-radius: 3px;
+                background-color: $c-base;
+                color: $c-white;
+                font-weight: 600;
+        }
 }
 
 /* Questions
